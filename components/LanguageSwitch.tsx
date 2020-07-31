@@ -27,16 +27,16 @@ const LanguageSelect: FC<Props> = ({ value, onChange }) => {
       value={value}
       onChange={(e) => onChange(e.target.value as string)}>
       <MenuItem value='es'>
-        <Flag alt='spanish' src='/docs/flag_es.png' />
+        <Flag alt='spanish' src='/flag_es.png' />
       </MenuItem>
       <MenuItem value='en'>
-        <Flag alt='english' src='/docs/flag_en.png' />
+        <Flag alt='english' src='/flag_en.png' />
       </MenuItem>
       <MenuItem value='pt'>
-        <Flag alt='portuguese' src='/docs/flag_pt.png' />
+        <Flag alt='portuguese' src='/flag_pt.png' />
       </MenuItem>
       <MenuItem value='de'>
-        <Flag alt='german' src='/docs/flag_de.png' />
+        <Flag alt='german' src='/flag_de.png' />
       </MenuItem>
     </StyledSelect>
   )
