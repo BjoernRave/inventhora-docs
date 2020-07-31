@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { ColorModeSwitch, DokzProvider } from 'dokz/dist'
+import { NextSeo } from 'next-seo'
 import { AppProps } from 'next/app'
+import Head from 'next/head'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import LanguageSelect from '../components/LanguageSwitch'
@@ -38,6 +40,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           onChange={setCurrentLanguage}
         />,
       ]}>
+      <Head>
+        <link rel='shortcut icon' href='/logo_small_32.png' />
+      </Head>
+      <NextSeo title='Inventhora Docs' />
       <Component {...pageProps} />
     </DokzProvider>
   )
