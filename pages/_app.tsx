@@ -6,9 +6,23 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import LanguageSelect from '../components/LanguageSwitch'
-const Logo = styled.img`
+
+const SmallLogo = styled.img`
+  height: 40px;
+  cursor: pointer;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
+`
+
+const BigLogo = styled.img`
   width: 70%;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
 
 const App = ({ Component, pageProps, router }: AppProps) => {
@@ -29,7 +43,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       headerLogo={
         <Link href={`/${currentLanguage}/`}>
           <a>
-            <Logo src='/logo_large.png' />
+            <SmallLogo alt='Logo' src='/logo_small_512.png' />
+            <BigLogo alt='Logo' src='/logo_large.png' />
           </a>
         </Link>
       }
