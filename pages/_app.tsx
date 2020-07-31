@@ -22,7 +22,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   return (
     <DokzProvider
       docsRootPath={`pages/${currentLanguage}`}
-      headerLogo={<Logo src='/logo_large.png' />}
+      headerLogo={<Logo src='/docs/logo_large.png' />}
       headerItems={[
         <ColorModeSwitch key='1' />,
         <LanguageSelect
