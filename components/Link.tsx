@@ -30,7 +30,7 @@ const Link: FC<Props> = ({ href, children }) => {
   const routes = router.asPath.split('/')
 
   return (
-    <NextLink passHref href={`/${routes[1]}${href}`}>
+    <NextLink scroll={false} passHref href={`/${routes[1]}${href}`}>
       <ATag>{children}</ATag>
     </NextLink>
   )

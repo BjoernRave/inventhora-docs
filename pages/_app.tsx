@@ -44,6 +44,9 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   return (
     <MuiThemeProvider theme={getTheme(colorMode === 'dark')}>
       <DokzProvider
+        headTitlePrefix='Inventhora | '
+        githubUrl='https://github.com/BjoernRave/inventhora-docs'
+        branch='master'
         docsRootPath={`pages/${currentLanguage}`}
         sidebarOrdering={{
           index: true,
