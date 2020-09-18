@@ -1,15 +1,17 @@
+import Link from 'components/Link'
+
 # Movement Fields
 
 ## Type
 
-The MovementType defines what kind of movement it is. The options are:
+The Type field defines what kind of movement it is. The options are:
 
 - incoming
 - outgoing
 
-## Status
+## Status (Optional)
 
-The Status defines in which phase of a movement it is. 
+The Status field defines in which phase a movement is.
 
 The Options are:
 
@@ -17,3 +19,29 @@ The Options are:
 - pending
 - paid
 - completed
+
+## Product
+
+This field is only available when creating an incoming movement.
+
+The Product field defines which product is being moved.
+
+See also: <Link href="/product/introduction">Product</Link>
+
+## Batch Number (Optional)
+
+The Batch Number field defines from which batch this batch of products is coming from.
+
+## Best Before (Optional)
+
+The Best Before field defines the best before date of this batch of products.
+
+## Warehouse (Optional)
+
+The Warehouse field defines which Warehouse receives/sends this movement.
+
+## Supplier
+
+This field is only available when creating an incoming movement.
+
+The Supplier field defines where the products are coming from.

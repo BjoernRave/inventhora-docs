@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
-import { ColorModeSwitch, DokzProvider } from 'dokz/dist'
+import { MuiThemeProvider } from '@material-ui/core'
+import DarkmodeSwitch from 'components/DarkmodeSwitch'
+import { DokzProvider } from 'dokz/dist'
+import { getTheme } from 'lib/theme'
 import { NextSeo } from 'next-seo'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -27,6 +30,7 @@ const BigLogo = styled.img`
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [currentLanguage, setCurrentLanguage] = useState('en')
+  const [colorMode, setColorMode] = useState('light')
 
   useEffect(() => {
     const routes = router.asPath.split('/')
@@ -38,29 +42,51 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   }, [currentLanguage])
 
   return (
-    <DokzProvider
-      docsRootPath={`pages/${currentLanguage}`}
-      headerLogo={
-        <Link href={`/${currentLanguage}/`}>
-          <a>
-            <SmallLogo alt='Logo' src='/logo_small_512.png' />
-            <BigLogo alt='Logo' src='/logo_large.png' />
-          </a>
-        </Link>
-      }
-      headerItems={[
-        <ColorModeSwitch key='1' />,
-        <LanguageSelect
-          value={currentLanguage}
-          onChange={setCurrentLanguage}
-        />,
-      ]}>
-      <Head>
-        <link rel='shortcut icon' href='/logo_small_32.png' />
-      </Head>
-      <NextSeo title='Inventhora Docs' />
-      <Component {...pageProps} />
-    </DokzProvider>
+    <MuiThemeProvider theme={getTheme(colorMode === 'dark')}>
+      <DokzProvider
+        docsRootPath={`pages/${currentLanguage}`}
+        sidebarOrdering={{
+          index: true,
+          movements: {
+            introduction: true,
+          },
+          inventory: {
+            introduction: true,
+          },
+          product: {
+            introduction: true,
+          },
+        }}
+        headerLogo={
+          <Link href={`/${currentLanguage}/`}>
+            <a>
+              <SmallLogo alt='Logo' src='/logo_small_512.png' />
+              <BigLogo
+                alt='Logo'
+                src={
+                  colorMode === 'light'
+                    ? '/logo_large.png'
+                    : '/logo_large_dark.png'
+                }
+              />
+            </a>
+          </Link>
+        }
+        headerItems={[
+          <DarkmodeSwitch onChange={(v) => setColorMode(v)} key='1' />,
+          <LanguageSelect
+            key='2'
+            value={currentLanguage}
+            onChange={setCurrentLanguage}
+          />,
+        ]}>
+        <Head>
+          <link rel='shortcut icon' href='/logo_small_32.png' />
+        </Head>
+        <NextSeo title='Inventhora Docs' />
+        <Component {...pageProps} />
+      </DokzProvider>
+    </MuiThemeProvider>
   )
 }
 
