@@ -1,0 +1,102 @@
+import Link from 'components/Link'
+import { Secondary } from 'components/Note'
+
+# Movement
+
+## Fields
+
+### Type
+
+The Type field defines what kind of movement it is. The options are:
+
+- Incoming
+- Outgoing
+
+Incoming: Received Goods
+
+### Status (Optional)
+
+The Status field defines in which phase a movement is.
+
+The Options are:
+
+- cancelled
+- pending
+- paid
+- completed
+
+### Inventory
+
+<Secondary>
+  This field is only available when creating an outgoing Movement.{' '}
+</Secondary>
+
+The Inventory field defines from which inventory the products are taken.
+
+See also: <Link href="/main-entities/inventory">Inventory</Link>
+
+### Product
+
+This field is only available when creating an incoming movement.
+
+The Product field defines which product is being moved.
+
+See also: <Link href="/main-entities/product">Product</Link>
+
+### Batch Number (Optional)
+
+The Batch Number field defines from which batch this batch of products is coming from.
+
+### Best Before (Optional)
+
+The Best Before field defines the best before date of this batch of products.
+
+### Warehouse (Optional)
+
+The Warehouse field defines which Warehouse receives/sends this movement.
+
+See Also: <Link href="/main-entities/warehouse">Warehouse</Link>
+
+### Supplier
+
+<Secondary>
+  This field is only available when creating an incoming movement.
+</Secondary>
+
+The Supplier field defines where the products are coming from.
+
+See also: <Link href="/main-entities/supplier">Supplier</Link>
+
+### Amount
+
+This field defines how many products are processed in the movement.
+
+If you specified a Unit on the product, which is being moved you can also select the product unit.
+
+See also: <Link href="/secondary-entities/product-unit">Product Unit</Link>
+
+### Price per Unit (Optional)
+
+The Price per Unit defines how much one unit of the product is costing.
+
+### Arrival/Departue Date and Time
+
+The Arrival/Departue Date and Time field defines when the movement has happened.
+
+### Transports
+
+The Transports field defines how the movement is being transported. Multiple transports can be defined
+
+See also: <Link href="/secondary-entities/transport">Transport</Link>
+
+### Notes (Optional)
+
+The Notes field allows you to define any information to the movement, which could be useful later on.
+
+### Tags (Optional)
+
+The Tags field allowy you to define tags for this movement to categorize it.
+
+### Documents (Optional)
+
+The Documents field allows you to attach any kind of documents to the movement, which could be useful later on.
