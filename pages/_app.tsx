@@ -48,18 +48,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         githubUrl='https://github.com/BjoernRave/inventhora-docs'
         branch='master'
         docsRootPath={`pages/${currentLanguage}`}
-        sidebarOrdering={{
-          index: true,
-          movements: {
-            introduction: true,
-          },
-          inventory: {
-            introduction: true,
-          },
-          product: {
-            introduction: true,
-          },
-        }}
         headerLogo={
           <Link href={`/${currentLanguage}/`}>
             <a>
