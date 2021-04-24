@@ -1,4 +1,4 @@
-import { useColorMode } from '@chakra-ui/core'
+import { useColorMode } from '@chakra-ui/react'
 import { IconButton } from '@material-ui/core'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh'

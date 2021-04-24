@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { MuiThemeProvider } from '@material-ui/core'
 import DarkmodeSwitch from 'components/DarkmodeSwitch'
@@ -42,42 +43,45 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   }, [currentLanguage])
 
   return (
-    <MuiThemeProvider theme={getTheme(colorMode === 'dark')}>
-      <DokzProvider
-        headTitlePrefix='Inventhora | '
-        githubUrl='https://github.com/BjoernRave/inventhora-docs'
-        branch='master'
-        docsRootPath={`pages/${currentLanguage}`}
-        headerLogo={
-          <Link href={`/${currentLanguage}/`}>
-            <a>
-              <SmallLogo alt='Logo' src='/logo_small_512.png' />
-              <BigLogo
-                alt='Logo'
-                src={
-                  colorMode === 'light'
-                    ? '/logo_large.png'
-                    : '/logo_large_dark.png'
-                }
-              />
-            </a>
-          </Link>
-        }
-        headerItems={[
-          <DarkmodeSwitch onChange={(v) => setColorMode(v)} key='1' />,
-          <LanguageSelect
-            key='2'
-            value={currentLanguage}
-            onChange={setCurrentLanguage}
-          />,
-        ]}>
-        <Head>
-          <link rel='shortcut icon' href='/logo_small_32.png' />
-        </Head>
-        <NextSeo title='Inventhora Docs' />
-        <Component {...pageProps} />
-      </DokzProvider>
-    </MuiThemeProvider>
+    <ChakraProvider resetCSS>
+      <MuiThemeProvider theme={getTheme(colorMode === 'dark')}>
+        <DokzProvider
+          animate
+          headTitlePrefix='Inventhora | '
+          githubUrl='https://github.com/BjoernRave/inventhora-docs'
+          branch='master'
+          docsRootPath={`pages/${currentLanguage}`}
+          headerLogo={
+            <Link href={`/${currentLanguage}/`}>
+              <a>
+                <SmallLogo alt='Logo' src='/logo_small_512.png' />
+                <BigLogo
+                  alt='Logo'
+                  src={
+                    colorMode === 'light'
+                      ? '/logo_large.png'
+                      : '/logo_large_dark.png'
+                  }
+                />
+              </a>
+            </Link>
+          }
+          headerItems={[
+            <DarkmodeSwitch onChange={(v) => setColorMode(v)} key='1' />,
+            <LanguageSelect
+              key='2'
+              value={currentLanguage}
+              onChange={setCurrentLanguage}
+            />,
+          ]}>
+          <Head>
+            <link rel='shortcut icon' href='/logo_small_32.png' />
+          </Head>
+          <NextSeo title='Inventhora Docs' />
+          <Component {...pageProps} />
+        </DokzProvider>
+      </MuiThemeProvider>
+    </ChakraProvider>
   )
 }
 
